@@ -1,0 +1,592 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Portfólio da creator Bia Oliveira (@biaa_oliveeira): criação de conteúdo e UGC em humor, lifestyle, esportes, moda e beleza.">
+<meta property="og:title" content="Bia Oliveira · Creator">
+<meta property="og:description" content="Criação de conteúdo e UGC · 180 mil seguidores no Instagram e TikTok · Parcerias com 99, Caedu, Super Guaraviton e mais.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta name="theme-color" content="#F6F5F3">
+<link rel="icon" href="fotos/avatar.jpg">
+<style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Bia Oliveira · Creator</title>
+</head>
+<body>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;800&family=Figtree:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: sticky tab bar → profile hero → three views (Portfólio / Métricas / Contato), one visible at a time */
+:root{
+  --bg:#F6F5F3; --surface:#FFFFFF; --ink:#1C1B1A; --muted:#74706B; --line:#E3E0DC;
+  --accent:#6B5446; --accent-ink:#FFFFFF; --sea:#8F857B; --sun:#E8E4DF; --plum:#B2A99F;
+  --chip:#ECEAE6;
+  --f-display:"Unbounded","Arial Black",system-ui,sans-serif;
+  --f-body:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"DM Mono",ui-monospace,"Cascadia Mono",Consolas,monospace;
+  --r:14px;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#141312; --surface:#1D1C1A; --ink:#EFECE8; --muted:#A29C95; --line:#33302D;
+  --accent:#C9AE9A; --accent-ink:#1A1512; --sea:#9C9287; --sun:#2A2825; --plum:#6E6760; --chip:#262422; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#141312; --surface:#1D1C1A; --ink:#EFECE8; --muted:#A29C95; --line:#33302D;
+  --accent:#C9AE9A; --accent-ink:#1A1512; --sea:#9C9287; --sun:#2A2825; --plum:#6E6760; --chip:#262422; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.55}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+.wrap{max-width:1120px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;margin:0;line-height:1.1}
+.label{font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--sea);outline-offset:2px;border-radius:6px}
+
+/* Sample banner */
+
+/* Top bar */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:12px;flex-wrap:wrap}
+.logo{font-family:var(--f-display);font-weight:800;font-size:18px;letter-spacing:-.02em}
+.logo span{color:var(--accent)}
+.tabs{display:flex;gap:4px;background:var(--chip);padding:4px;border-radius:999px}
+.tabs button{border:0;background:transparent;padding:8px 16px;border-radius:999px;font-weight:600;font-size:14px;color:var(--muted)}
+.tabs button[aria-selected="true"]{background:var(--ink);color:var(--bg)}
+
+/* Hero */
+.hero{padding-block:48px 32px;display:grid;grid-template-columns:auto 1fr;gap:32px;align-items:center}
+.avatar{width:148px;height:148px;border-radius:50%;padding:5px;background:var(--ink)}
+.avatar div{width:100%;height:100%;border-radius:50%;background:var(--surface);display:grid;place-items:center;font-family:var(--f-display);font-weight:800;font-size:48px;color:var(--accent)}
+.hero h1{font-size:clamp(34px,6vw,64px);font-weight:800;letter-spacing:-.03em}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero p{max-width:60ch;margin:12px 0 0;color:var(--muted);font-size:17px}
+.handles{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.handle{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border:1px solid var(--line);border-radius:999px;background:var(--surface);font-weight:600;font-size:14px;text-decoration:none;color:var(--ink)}
+.handle b{font-family:var(--f-mono);font-weight:500;color:var(--muted)}
+.dot{width:10px;height:10px;border-radius:50%}
+.ico{width:17px;height:17px;flex:none;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.ico .fill{fill:currentColor;stroke:none}
+/* Portfolio opener styled like a social profile header */
+.profile-card{display:flex;gap:28px;align-items:center;padding-bottom:28px;margin-bottom:32px;border-bottom:1px solid var(--line)}
+.pc-avatar{flex:none;width:96px;height:96px;border-radius:50%;padding:3px;background:var(--ink)}
+.pc-avatar img{display:block;width:100%;height:100%;border-radius:50%;border:3px solid var(--bg);background:var(--chip);object-fit:cover}
+.pc-main{min-width:0}
+.pc-name{display:flex;align-items:center;gap:10px;flex-wrap:wrap;font-size:20px;font-weight:600}
+.pc-badge{font-size:12px;padding:3px 10px;border-radius:8px;background:var(--chip);color:var(--muted);font-weight:600}
+.pc-stats{list-style:none;margin:12px 0;padding:0;display:flex;gap:8px 28px;flex-wrap:wrap;font-size:15px}
+.pc-stats strong{font-weight:700;font-variant-numeric:tabular-nums}
+.pc-stats .real,.pc-stats .ex{margin-left:2px}
+.pc-bio{font-size:14px;color:var(--muted)}
+.pc-bio b{color:var(--ink)}
+.real{font-family:var(--f-mono);font-size:10px;padding:2px 6px;border-radius:4px;background:var(--sea);color:var(--bg);vertical-align:middle;margin-left:6px;letter-spacing:.04em}
+.ex{font-family:var(--f-mono);font-size:10px;padding:2px 6px;border-radius:4px;border:1px dashed var(--muted);color:var(--muted);vertical-align:middle;margin-left:6px}
+
+/* Continuous page: each section follows the previous one */
+[data-panel]{scroll-margin-top:calc(env(safe-area-inset-top,0px) + 64px);padding-top:48px;border-top:1px solid var(--line)}
+
+/* Portfolio */
+.sec-head{display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap;margin-bottom:20px}
+.sec-head h2{font-size:clamp(24px,3.4vw,34px);font-weight:700}
+.types{display:flex;gap:28px;border-bottom:1px solid var(--line);margin-bottom:20px;overflow-x:auto}
+.types button{border:0;background:none;padding:12px 0;font-weight:600;font-size:15px;color:var(--muted);white-space:nowrap;display:flex;gap:6px;align-items:baseline}
+.types .n{font-family:var(--f-mono);font-size:12px}
+.types button[aria-pressed="true"]{color:var(--ink);box-shadow:inset 0 -2px 0 var(--ink)}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:28px}
+.tag.type{background:color-mix(in srgb,var(--accent) 15%,transparent);color:var(--accent)}
+.filters button{border:1px solid var(--line);background:var(--surface);padding:8px 14px;border-radius:999px;font-size:14px;font-weight:600}
+.filters button .n{font-family:var(--f-mono);font-size:12px;color:var(--muted);margin-left:4px}
+.filters button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.filters button[aria-pressed="true"] .n{color:inherit;opacity:.8}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:20px;padding-bottom:64px}
+.card{border:0;padding:0;background:none;text-align:left;display:flex;flex-direction:column;gap:10px}
+.thumb{position:relative;aspect-ratio:9/14;max-width:100%;border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;padding:14px;color:#fff;transition:transform .25s ease}
+.card:hover .thumb{transform:translateY(-4px) rotate(-.6deg)}
+.thumb .big{font-family:var(--f-display);font-weight:800;font-size:30px;line-height:1;letter-spacing:-.02em;text-shadow:0 2px 18px rgba(0,0,0,.25)}
+.thumb .fmt{align-self:flex-start;font-family:var(--f-mono);font-size:11px;background:rgba(0,0,0,.35);padding:4px 8px;border-radius:6px;letter-spacing:.05em}
+.thumb .views{display:flex;align-items:center;gap:6px;font-family:var(--f-mono);font-size:13px;font-weight:500}
+.thumb .play{position:absolute;right:14px;bottom:14px;width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.9);display:grid;place-items:center}
+.thumb .play::after{content:"";border-left:12px solid #1E1A2B;border-top:7px solid transparent;border-bottom:7px solid transparent;margin-left:3px}
+.card h3{font-family:var(--f-body);font-size:16px;font-weight:700;line-height:1.3}
+.card .meta{display:flex;gap:6px;flex-wrap:wrap}
+.tag{font-size:12px;font-weight:600;padding:3px 9px;border-radius:999px;background:var(--chip);color:var(--muted)}
+.brand{font-size:13px;color:var(--muted)}
+
+/* Metrics */
+.platforms{display:flex;gap:8px;flex-wrap:wrap}
+.platforms button{border:1px solid var(--line);background:var(--surface);padding:8px 14px;border-radius:10px;font-weight:600;font-size:14px;display:flex;align-items:center;gap:8px}
+.platforms button[aria-pressed="true"]{border-color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
+.sync{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--muted);margin-bottom:20px;flex-wrap:wrap}
+.pulse{width:8px;height:8px;border-radius:50%;background:var(--sea);box-shadow:0 0 0 4px color-mix(in srgb,var(--sea) 25%,transparent)}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-bottom:20px}
+.kpi{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:18px}
+.kpi strong{display:block;font-family:var(--f-display);font-size:28px;font-weight:700;margin-top:6px;font-variant-numeric:tabular-nums}
+.delta{font-size:13px;font-weight:600;color:var(--sea)}
+.panels{display:grid;grid-template-columns:1.6fr 1fr;gap:14px;margin-bottom:14px}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:20px;min-width:0}
+.panel h3{font-family:var(--f-body);font-size:16px;font-weight:700;margin-bottom:4px}
+.panel .sub{font-size:13px;color:var(--muted);margin:0 0 14px}
+.chart{width:100%;height:auto;display:block}
+.chart text{fill:var(--muted);font-family:var(--f-mono);font-size:11px}
+.bars{display:flex;flex-direction:column;gap:12px}
+.bar-row{display:grid;grid-template-columns:96px 1fr 44px;gap:10px;align-items:center;font-size:14px}
+.bar-track{height:10px;background:var(--chip);border-radius:999px;overflow:hidden}
+.bar-fill{height:100%;border-radius:999px;background:var(--accent)}
+.bar-row span:last-child{font-family:var(--f-mono);font-size:13px;text-align:right;font-variant-numeric:tabular-nums}
+.split{display:flex;height:14px;border-radius:999px;overflow:hidden;margin:10px 0 8px}
+.legend{display:flex;gap:16px;font-size:13px;color:var(--muted);flex-wrap:wrap}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:middle}
+.top-posts{display:flex;flex-direction:column}
+.tp{display:grid;grid-template-columns:44px 1fr auto;gap:12px;align-items:center;padding-block:10px;border-bottom:1px solid var(--line)}
+.tp:last-child{border-bottom:0}
+.tp .mini{width:44px;height:56px;border-radius:8px}
+.tp b{font-size:14px;display:block;line-height:1.3}
+.tp small{color:var(--muted);font-size:12px}
+.tp .num{font-family:var(--f-mono);font-size:14px;text-align:right;font-variant-numeric:tabular-nums}
+.note{font-size:13px;color:var(--muted);border:1px dashed var(--line);border-radius:var(--r);padding:14px 16px;margin-bottom:64px}
+
+/* About */
+.about{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:40px;padding-bottom:64px;align-items:stretch}
+.carousel{position:relative;max-width:100%;height:100%;min-height:420px;border-radius:20px;overflow:hidden;background:var(--chip)}
+.slide{position:absolute;inset:0;display:grid;place-items:center;text-align:center;color:#fff;padding:24px;font-size:14px;opacity:0;transition:opacity .7s ease}
+.slide.is-on{opacity:1}
+.slide img{position:absolute;inset:0;width:100%;height:100%;max-width:none;object-fit:cover}
+.slide b{display:block;font-family:var(--f-display);font-size:18px;margin-bottom:6px}
+.carousel .nav{position:absolute;top:50%;transform:translateY(-50%);width:38px;height:38px;border-radius:50%;border:0;background:rgba(255,255,255,.85);color:#1C1B1A;font-size:22px;line-height:1;display:grid;place-items:center}
+.carousel .prev{left:12px}.carousel .next{right:12px}
+.dots{position:absolute;left:0;right:0;bottom:14px;display:flex;justify-content:center;gap:6px}
+.dots button{width:8px;height:8px;border-radius:999px;border:0;padding:0;background:rgba(255,255,255,.5);transition:width .3s ease}
+.dots button[aria-current="true"]{width:22px;background:#fff}
+[data-panel]:first-child{border-top:0;padding-top:40px}
+.about h1{font-size:clamp(34px,6vw,60px);font-weight:800;letter-spacing:-.03em;margin-top:8px}
+.about h1 em{font-style:normal;color:var(--accent)}
+.about h2{font-family:var(--f-body);font-size:clamp(18px,2.2vw,22px);font-weight:600;color:var(--muted);margin-top:10px}
+.about p{max-width:62ch;margin:14px 0 0}
+.sheet{display:grid;grid-template-columns:repeat(2,1fr);border-top:1px solid var(--line);margin-top:28px}
+.sheet div{display:flex;justify-content:space-between;gap:12px;padding-block:12px;border-bottom:1px solid var(--line);font-size:15px}
+.sheet div:nth-child(odd){padding-right:20px}
+.sheet div:nth-child(even){padding-left:20px;border-left:1px solid var(--line)}
+.sheet dt{color:var(--muted)}
+.sheet dd{margin:0;font-weight:600;text-align:right}
+.todo{font-family:var(--f-mono);font-size:12px;font-weight:400;color:var(--muted);border:1px dashed var(--muted);border-radius:4px;padding:1px 6px}
+.interests{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.profiles{display:flex;gap:20px 48px;flex-wrap:wrap;align-items:flex-start;margin-bottom:24px}
+.profiles .handles,.profiles .interests{margin-top:10px}
+
+/* Contact */
+.contact{display:grid;grid-template-columns:1.1fr 1fr;gap:28px;padding-bottom:64px}
+.contact h2{font-size:clamp(28px,4.4vw,46px);font-weight:800;letter-spacing:-.02em}
+.contact h2 em{font-style:normal;color:var(--accent)}
+.contact p{color:var(--muted);max-width:52ch}
+.packs{display:flex;flex-direction:column;gap:10px}
+.pack{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:16px 18px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r)}
+.pack b{display:block}
+.pack small{color:var(--muted)}
+.pack .price{font-family:var(--f-mono);font-size:13px;color:var(--muted);white-space:nowrap}
+.mail{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:20px}
+.mail code{font-family:var(--f-mono);font-size:15px;padding:10px 14px;border:1px solid var(--line);border-radius:10px;background:var(--surface);user-select:all}
+.btn{border:0;background:var(--accent);color:var(--accent-ink);padding:11px 18px;border-radius:10px;font-weight:700}
+.btn-ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1px var(--line)}
+.btn-sm{padding:9px 14px;font-size:14px;white-space:nowrap;flex:none}
+#proposal{max-width:min(440px,calc(100vw - 32px))}
+.prop-body{position:relative;padding:28px 24px 24px;display:flex;flex-direction:column;gap:10px}
+.prop-body h3{font-size:22px;font-weight:700;padding-right:40px}
+.prop-body p{margin:0 0 6px;color:var(--muted);font-size:15px}
+.prop-body .close{background:var(--chip);color:var(--ink)}
+.prop-actions{display:flex;flex-direction:column;gap:10px}
+.prop-opt{display:flex;align-items:center;gap:14px;padding:14px 16px;border:1px solid var(--line);border-radius:12px;text-decoration:none;color:var(--ink)}
+.prop-opt:hover{border-color:var(--ink)}
+.prop-opt .ico{width:22px;height:22px}
+.prop-opt b{display:block}
+.prop-opt small{color:var(--muted);font-size:13px}
+.brands{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
+/* Logos only; the brand name shows as a tooltip on hover or keyboard focus */
+.brands{gap:14px}
+.brands a{position:relative;display:block;border-radius:50%;text-decoration:none}
+.brands img{display:block;width:56px;height:56px;border-radius:50%;object-fit:cover;background:var(--chip);box-shadow:0 0 0 1px var(--line);transition:transform .2s ease,box-shadow .2s ease}
+.brands a:hover img,.brands a:focus-visible img{transform:translateY(-2px);box-shadow:0 0 0 2px var(--ink)}
+.brands span{position:absolute;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%);white-space:nowrap;background:var(--ink);color:var(--bg);font-size:12px;font-weight:600;padding:5px 10px;border-radius:8px;opacity:0;pointer-events:none;transition:opacity .15s ease}
+.brands a:hover span,.brands a:focus-visible span{opacity:1}
+
+/* Modal */
+dialog{border:0;border-radius:20px;padding:0;max-width:min(760px,calc(100vw - 32px));width:100%;background:var(--surface);color:var(--ink)}
+dialog::backdrop{background:rgba(15,10,25,.55)}
+.modal{display:grid;grid-template-columns:240px 1fr;gap:0}
+.modal .thumb{border-radius:0;aspect-ratio:auto;min-height:340px}
+.modal-body{padding:24px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.modal-body h3{font-size:22px;font-weight:700}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.facts div{background:var(--chip);border-radius:10px;padding:10px 12px}
+.facts strong{display:block;font-family:var(--f-display);font-size:18px;font-variant-numeric:tabular-nums}
+.facts small{font-size:12px;color:var(--muted)}
+.close{position:absolute;top:12px;right:12px;width:36px;height:36px;border-radius:50%;border:0;background:rgba(0,0,0,.45);color:#fff;font-size:20px;line-height:1}
+
+@media (max-width:860px){
+  .kpis{grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
+  .panels,.contact,.about{grid-template-columns:1fr}
+  .carousel{max-width:420px;width:100%;height:auto;min-height:0;aspect-ratio:4/5}
+}
+@media (max-width:600px){
+  .hero{grid-template-columns:1fr;gap:20px;padding-block:32px 24px}
+  .avatar{width:104px;height:104px}.avatar div{font-size:34px}
+  .tabs{width:100%}.tabs button{flex:1;padding:8px 6px}
+  .sheet{grid-template-columns:1fr}
+  .types{gap:20px}
+  .profile-card{gap:16px;align-items:flex-start}
+  .pc-avatar{width:72px;height:72px}
+  .pc-stats{gap:6px 18px;font-size:14px}
+  .sheet div:nth-child(n){padding-inline:0;border-left:0}
+  .grid{grid-template-columns:repeat(2,1fr);gap:12px}
+  .thumb .big{font-size:20px}
+  .modal{grid-template-columns:1fr}.modal .thumb{min-height:200px}
+  .facts{grid-template-columns:1fr 1fr 1fr}
+  .bar-row{grid-template-columns:80px 1fr 40px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+
+<header class="top">
+  <div class="wrap">
+    <div class="logo">biaa<span>.</span>oliveeira</div>
+    <nav class="tabs" role="tablist" aria-label="Seções">
+      <button role="tab" id="tab-sobre" data-view="sobre" aria-selected="true">Sobre</button>
+      <button role="tab" id="tab-portfolio" data-view="portfolio" aria-selected="false">Portfólio</button>
+      <button role="tab" id="tab-metricas" data-view="metricas" aria-selected="false">Métricas</button>
+      <button role="tab" id="tab-contato" data-view="contato" aria-selected="false">Parcerias</button>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+
+  <!-- PORTFÓLIO -->
+  <section id="view-portfolio" data-panel="portfolio">
+    <div class="sec-head">
+      <div><div class="label">Trabalhos</div><h2>Portfólio</h2></div>
+      <span class="brand">Toque num card para ver o case</span>
+    </div>
+    <div class="profile-card">
+      <div class="pc-avatar"><img src="fotos/avatar.jpg" alt="Foto de perfil da Bia"></div>
+      <div class="pc-main">
+        <div class="pc-name">biaa_oliveeira <span class="pc-badge">Creator</span></div>
+        <ul class="pc-stats">
+          <li><strong>19,3 mil</strong> no Instagram</li>
+          <li><strong>161,1 mil</strong> no TikTok</li>
+          <li><strong>+2,1 mi</strong> curtidas</li>
+          <li><strong>4</strong> países visitados</li>
+        </ul>
+        <div class="pc-bio">Humor | Lifestyle | Esportes · Publicitária e CLTeira</div>
+      </div>
+    </div>
+    <div class="types" id="types" aria-label="Tipo de trabalho"></div>
+    <div class="label" style="margin-bottom:10px">Nicho</div>
+    <div class="filters" id="filters" aria-label="Filtrar por nicho"></div>
+    <div class="grid" id="grid"></div>
+  </section>
+
+  <!-- SOBRE -->
+  <section id="view-sobre" data-panel="sobre">
+    <div class="about">
+      <div class="carousel" id="carousel" aria-roledescription="carrossel" aria-label="Fotos da Bia">
+        <div class="slide is-on"><img src="fotos/post01.jpg" alt="Bia na Gran Vía, em Madrid, à noite"></div>
+        <div class="slide"><img src="fotos/post06.jpg" alt="Bia na Praça do Comércio, em Lisboa"></div>
+        <div class="slide"><img src="fotos/post02.jpg" alt="Bia no Parque Warner, em Madrid"></div>
+        <div class="slide"><img src="fotos/post04.jpg" alt="Bia em uma avenida com palmeiras em Portugal"></div>
+        <div class="slide"><img src="fotos/post03.jpg" alt="Bia à mesa de um restaurante"></div>
+        <button class="nav prev" aria-label="Foto anterior">‹</button>
+        <button class="nav next" aria-label="Próxima foto">›</button>
+        <div class="dots"></div>
+      </div>
+      <div>
+        <div class="label">Creator · Publicitária · São Paulo</div>
+        <h1>Oi, eu sou a <em>Bia</em>.</h1>
+        <h2>Publicitária de formação, creator por vocação</h2>
+        <p>Sou a Bia. Trabalho com publicidade e transformo a rotina de quem bate ponto em conteúdo: humor sobre a vida CLT, treinos que cabem antes do expediente e viagens entre o Brasil, a Argentina, Portugal, a Espanha e mundo afora.</p>
+        <p>Como entendo dos dois lados da campanha, penso no briefing e no resultado da marca desde o roteiro, sem perder o tom leve que o meu público já conhece.</p>
+        <div class="label" style="margin-top:32px">Ficha para marcas</div>
+        <dl class="sheet" style="margin-top:10px">
+          <div><dt>Altura</dt><dd>1,52 m</dd></div>
+          <div><dt>Blusa</dt><dd>M</dd></div>
+          <div><dt>Calça, short e saia</dt><dd>P · 36</dd></div>
+          <div><dt>Calçado</dt><dd>36</dd></div>
+          <div><dt>Cabelo</dt><dd>Médio, caramelo</dd></div>
+          <div><dt>Tom de pele</dt><dd>Preta</dd></div>
+          <div><dt>Cidade base</dt><dd>São Paulo</dd></div>
+          <div><dt>Idiomas</dt><dd>Espanhol e inglês básico</dd></div>
+          <div><dt>Formação</dt><dd>Publicidade</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- MÉTRICAS -->
+  <section id="view-metricas" data-panel="metricas">
+    <div class="sec-head">
+      <div><div class="label">Media kit ao vivo</div><h2>Métricas</h2></div>
+      <div class="platforms" id="platforms">
+        <button data-p="all" aria-pressed="true"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="7" height="7" rx="2"/><rect x="13" y="4" width="7" height="7" rx="2"/><rect x="4" y="13" width="7" height="7" rx="2"/><rect x="13" y="13" width="7" height="7" rx="2"/></svg>Tudo</button>
+        <button data-p="ig" aria-pressed="false"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle class="fill" cx="17.3" cy="6.7" r="1.1"/></svg>Instagram</button>
+        <button data-p="tt" aria-pressed="false"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3v11.5a3.5 3.5 0 1 1-3.5-3.5"/><path d="M14 3c.6 2.6 2.4 4.4 5 4.8"/></svg>TikTok</button>
+      </div>
+    </div>
+    <div class="sync"><span class="pulse"></span>Dados dos perfis atualizados em 31/10/2026</div>
+
+    <div class="profiles">
+      <div><span class="label">Perfis</span>
+        <div class="handles">
+          <a class="handle" href="https://www.instagram.com/biaa_oliveeira/" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle class="fill" cx="17.3" cy="6.7" r="1.1"/></svg>Instagram <b>@biaa_oliveeira</b></a>
+          <a class="handle" href="https://www.tiktok.com/@biaa_oliveeira" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3v11.5a3.5 3.5 0 1 1-3.5-3.5"/><path d="M14 3c.6 2.6 2.4 4.4 5 4.8"/></svg>TikTok <b>@biaa_oliveeira</b></a>
+        </div>
+      </div>
+      <div><span class="label">Nichos</span>
+        <div class="interests"><span class="tag">Humor</span><span class="tag">Lifestyle</span><span class="tag">Esportes</span><span class="tag">Viagem</span></div>
+      </div>
+    </div>
+
+    <div class="kpis" id="kpis"></div>
+
+    <div class="panel" style="margin-bottom:64px">
+      <h3>Posts com melhor desempenho</h3>
+      <p class="sub">Instagram · por visualizações</p>
+      <div class="top-posts" id="topposts"></div>
+    </div>
+  </section>
+
+  <!-- CONTATO -->
+  <section id="view-contato" data-panel="contato">
+    <div class="contact">
+      <div>
+        <div class="label">Parcerias</div>
+        <h2>Vamos criar algo <em>juntos</em>?</h2>
+        <p>Trabalho com marcas de moda, beleza, fitness, tecnologia e viagem. Entrego conteúdo para o meu perfil ou UGC para os canais da sua marca, do roteiro à edição.</p>
+        <div class="mail">
+          <code id="email">contatobiaaoliveeira@gmail.com</code>
+          <button class="btn btn-ghost" id="copy">Copiar e-mail</button>
+          <button class="btn" data-fmt="parceria">Fazer proposta</button>
+        </div>
+        <div class="label" style="margin-top:28px">Marcas que já confiaram</div>
+        <div class="brands">
+          <a href="https://www.instagram.com/99brasil/" target="_blank" rel="noopener"><img src="fotos/logo-99.jpg" alt=""><span>99</span></a>
+          <a href="https://www.instagram.com/mattos_sttudio/" target="_blank" rel="noopener"><img src="fotos/logo-mattos.jpg" alt=""><span>Mattos Studio</span></a>
+          <a href="https://www.instagram.com/caedumoda/" target="_blank" rel="noopener"><img src="fotos/logo-caedu.jpg" alt=""><span>Caedu</span></a>
+          <a href="https://www.instagram.com/_mariacolorida/" target="_blank" rel="noopener"><img src="fotos/logo-mariacolorida.jpg" alt=""><span>Maria Colorida</span></a>
+          <a href="https://www.instagram.com/tojirosushizonanorte/" target="_blank" rel="noopener"><img src="fotos/logo-tojiro.jpg" alt=""><span>Tojiro Sushi</span></a>
+          <a href="https://www.instagram.com/uninfoco/" target="_blank" rel="noopener"><img src="fotos/logo-uninfoco.jpg" alt=""><span>Uninfoco</span></a>
+          <a href="https://www.instagram.com/paulavalentimestetica/" target="_blank" rel="noopener"><img src="fotos/logo-paulavalentim.png" alt=""><span>Paula Valentim</span></a>
+          <a href="https://www.instagram.com/superguaraviton/" target="_blank" rel="noopener"><img src="fotos/logo-guaraviton.jpg" alt=""><span>Super Guaraviton</span></a>
+        </div>
+      </div>
+      <div class="packs">
+        <div class="label">Formatos</div>
+        <div class="pack"><div><b>Criação de conteúdo</b><small>Reels, TikToks e Stories publicados no meu perfil</small></div><button class="btn btn-sm" data-fmt="Criação de conteúdo">Fazer proposta</button></div>
+        <div class="pack"><div><b>UGC</b><small>Vídeo para anúncios e redes da marca, sem postar no meu perfil</small></div><button class="btn btn-sm" data-fmt="UGC">Fazer proposta</button></div>
+        <div class="pack"><div><b>Pacote mensal</b><small>Embaixadora da marca por 30 dias</small></div><button class="btn btn-sm" data-fmt="Pacote mensal">Fazer proposta</button></div>
+        <div class="pack"><div><b>Proposta personalizada</b><small>Me conta a sua ideia e a gente monta o formato ideal</small></div><button class="btn btn-sm" data-fmt="Proposta personalizada">Fazer proposta</button></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<dialog id="proposal">
+  <div class="prop-body">
+    <button class="close" id="prop-close" aria-label="Fechar">×</button>
+    <div class="label">Fazer proposta</div>
+    <h3 id="prop-title">Parceria</h3>
+    <p>Escolha por onde quer falar comigo. A mensagem já vai pronta, é só completar com os detalhes da campanha.</p>
+    <div class="prop-actions">
+      <a id="prop-wa" class="prop-opt" href="https://wa.me/" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l1.3-4A8 8 0 1 1 8 18.7z"/></svg><span><b>WhatsApp</b><small>Abre uma conversa comigo</small></span></a>
+      <a id="prop-gm" class="prop-opt" href="https://mail.google.com/" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg><span><b>Gmail</b><small>Abre um e-mail pronto para enviar</small></span></a>
+    </div>
+  </div>
+</dialog>
+
+<dialog id="case">
+  <div style="position:relative">
+    <button class="close" id="close" aria-label="Fechar">×</button>
+    <div class="modal" id="case-body"></div>
+  </div>
+</dialog>
+
+<script>
+const TYPES = {"Todos":"Todos os trabalhos","Criação de conteúdo":"Publicado no meu perfil","UGC":"Vídeos para os canais da marca"};
+const NICHES = ["Todos","Moda","Beleza","Tecnologia","Humor","Alimentação","Indicação","Lifestyle","Esportes","Viagem"];
+const G = {
+  coral:"linear-gradient(160deg,#8C7B6E,#4A3F38)", sea:"linear-gradient(160deg,#9AA19E,#4F5755)",
+  sun:"linear-gradient(160deg,#C2B5A8,#7A6B5E)", plum:"linear-gradient(160deg,#6E6460,#2E2A28)",
+  ink:"linear-gradient(160deg,#3A3735,#141312)", rose:"linear-gradient(160deg,#B39F95,#6B574D)",
+  lime:"linear-gradient(160deg,#A3A193,#5A584B)"
+};
+const WORKS = [
+  {brand:"99", cats:["Tecnologia"], views:"1,5 mi", g:G.ink, img:"fotos/capa-99.jpg", url:"https://www.instagram.com/reel/DWjswr9gY-c/"},
+  {brand:"Mattos Studio", cats:["Humor","Beleza"], views:"241 mil", g:G.rose, img:"fotos/capa-mattos.jpg", url:"https://www.instagram.com/reel/DLvCXfxRE86/"},
+  {brand:"Caedu", cats:["Moda"], views:null, g:G.plum, img:"fotos/capa-caedu.jpg", url:"https://www.instagram.com/reel/DOhCPGukcNq/"},
+  {brand:"Maria Colorida", cats:["Moda","Indicação"], views:null, g:G.coral, img:"fotos/capa-mariacolorida.jpg", url:"https://www.instagram.com/reel/DNBr-K7x_ZM/"},
+  {brand:"Tojiro Sushi", cats:["Alimentação","Indicação"], views:"15 mil", g:G.sun, img:"fotos/capa-tojiro.jpg", url:"https://www.instagram.com/reel/DH2CAVwtCA8/"},
+  {brand:"Uninfoco", cats:["Humor","Indicação"], views:null, g:G.sea, img:"fotos/capa-uninfoco.jpg", url:"https://www.instagram.com/reel/Ccll9oqjvUC/"},
+  {brand:"Paula Valentim", cats:["Humor","Indicação"], views:null, g:G.lime, img:"fotos/capa-paulavalentim.jpg", url:"https://www.instagram.com/reel/ChI1sxtjel-/"},
+  {brand:"Super Guaraviton", type:"UGC", cats:["Alimentação","Humor"], views:null, g:G.coral, img:"fotos/capa-guaraviton.jpg", url:"https://www.instagram.com/reel/De-MxFIhKyA/"}
+];
+WORKS.forEach(w=>{ w.t = `Reels para ${w.brand}`; w.fmt = "REELS"; });
+
+WORKS.forEach(w=>{ w.type ??= "Criação de conteúdo"; });
+
+let type = "Todos", cat = "Todos";
+const $ = s => document.querySelector(s);
+const inType = w => type==="Todos" || w.type===type;
+
+function renderFilters(){
+  $("#types").innerHTML = Object.entries(TYPES).map(([t,desc])=>{
+    const n = t==="Todos" ? WORKS.length : WORKS.filter(w=>w.type===t).length;
+    return `<button data-t="${t}" aria-pressed="${t===type}" title="${desc}">${t}<span class="n">${n}</span></button>`;
+  }).join("");
+  const pool = WORKS.filter(inType);
+  $("#filters").innerHTML = NICHES.map(c=>{
+    const n = c==="Todos" ? pool.length : pool.filter(w=>w.cats.includes(c)).length;
+    return n ? `<button data-c="${c}" aria-pressed="${c===cat}">${c}<span class="n">${n}</span></button>` : "";
+  }).join("");
+}
+$("#types").addEventListener("click",e=>{
+  const b=e.target.closest("button"); if(!b) return;
+  type=b.dataset.t;
+  if(cat!=="Todos" && !WORKS.some(w=>inType(w)&&w.cats.includes(cat))) cat="Todos";
+  renderFilters(); renderGrid();
+});
+function thumb(w){
+  const bg = w.img ? `linear-gradient(180deg,rgba(0,0,0,.3),rgba(0,0,0,0) 30%,rgba(0,0,0,0) 60%,rgba(0,0,0,.6)),url(${w.img}) center/cover,${w.g}` : w.g;
+  return `<div class="thumb" style="background:${bg}"><span class="fmt">${w.fmt}</span>${w.img ? "" : `<span class="big">${w.brand}</span>`}<span class="views">${w.views ? "▶ "+w.views+" views" : "Ver no Instagram"}</span><span class="play"></span></div>`;
+}
+function renderGrid(){
+  const list = WORKS.filter(w=>inType(w) && (cat==="Todos" || w.cats.includes(cat)));
+  $("#grid").innerHTML = list.map(w=>`
+    <button class="card" data-i="${WORKS.indexOf(w)}">
+      ${thumb(w)}
+      <h3>${w.t}</h3>
+      <div class="brand">Parceria · ${w.brand}</div>
+      <div class="meta"><span class="tag type">${w.type}</span>${w.cats.map(c=>`<span class="tag">${c}</span>`).join("")}</div>
+    </button>`).join("") || `<p class="brand">Nenhum trabalho nessa categoria ainda.</p>`;
+}
+$("#filters").addEventListener("click",e=>{
+  const b=e.target.closest("button"); if(!b) return;
+  cat=b.dataset.c; renderFilters(); renderGrid();
+});
+$("#grid").addEventListener("click",e=>{
+  const b=e.target.closest(".card"); if(!b) return;
+  const w=WORKS[+b.dataset.i];
+  $("#case-body").innerHTML = `${thumb(w)}
+    <div class="modal-body">
+      <div class="label">${[w.type,...w.cats].join(" · ")}</div>
+      <h3>${w.t}</h3>
+      <div class="brand">Parceria · ${w.brand}</div>
+      <p style="margin:0">${w.type==="UGC" ? `Vídeo UGC publicado no perfil da ${w.brand}.` : `Reels publicado no @biaa_oliveeira em parceria com ${w.brand}.`}</p>
+      ${w.views ? `<div class="facts"><div><strong>${w.views}</strong><small>visualizações</small></div></div>` : ""}
+      <a class="btn" style="text-decoration:none;align-self:flex-start" href="${w.url}" target="_blank" rel="noopener">Ver no Instagram</a>
+    </div>`;
+  $("#case").showModal();
+});
+$("#close").onclick=()=>$("#case").close();
+$("#case").addEventListener("click",e=>{ if(e.target===$("#case")) $("#case").close(); });
+
+/* Metrics data */
+const KPIS={
+  all:[["Seguidores somados","180,4 mil","Instagram 19,3 mil + TikTok 161,1 mil"],["Curtidas","+2,1 mi","no TikTok"],["Reel mais visto","1,5 mi","parceria com a 99"],["Marcas parceiras","8","conteúdo e UGC"]],
+  ig:[["Seguidores","19,3 mil","@biaa_oliveeira"],["Reel mais visto","1,5 mi","parceria com a 99"],["Parcerias no perfil","7","Reels publicados"]],
+  tt:[["Seguidores","161,1 mil","@biaa_oliveeira"],["Curtidas","+2,1 mi","no perfil"]]
+};
+let plat="all";
+function kpiHTML(k){
+  return `<div class="kpi"><span class="label">${k[0]}</span><strong>${k[1]}</strong><span class="delta">${k[2]}</span></div>`;
+}
+function renderMetrics(){
+  $("#kpis").innerHTML=KPIS[plat].map(kpiHTML).join("");
+  const top = WORKS.filter(w=>w.views).slice(0,3);
+  $("#topposts").innerHTML = top.map(w=>`<div class="tp"><div class="mini" style="background:${w.img ? `url(${w.img}) center/cover,` : ""}${w.g}"></div><div><b>${w.t}</b><small>${w.fmt} · ${w.cats[0]}</small></div><span class="num">${w.views}</span></div>`).join("");
+}
+$("#platforms").addEventListener("click",e=>{
+  const b=e.target.closest("button"); if(!b) return;
+  plat=b.dataset.p;
+  document.querySelectorAll("#platforms button").forEach(x=>x.setAttribute("aria-pressed",x===b));
+  renderMetrics();
+});
+
+/* Photo carousel: auto-advances every 4s, pauses on hover, swipe on phones */
+(function(){
+  const box=$("#carousel"), slides=[...box.querySelectorAll(".slide")], dots=box.querySelector(".dots");
+  let i=0, timer;
+  dots.innerHTML=slides.map((_,k)=>`<button aria-label="Foto ${k+1}"></button>`).join("");
+  const db=[...dots.children];
+  function to(n){
+    i=(n+slides.length)%slides.length;
+    slides.forEach((s,k)=>s.classList.toggle("is-on",k===i));
+    db.forEach((d,k)=>d.setAttribute("aria-current",k===i));
+  }
+  function play(){
+    clearInterval(timer);
+    if(!matchMedia("(prefers-reduced-motion: reduce)").matches) timer=setInterval(()=>to(i+1),4000);
+  }
+  box.querySelector(".prev").onclick=()=>{to(i-1);play()};
+  box.querySelector(".next").onclick=()=>{to(i+1);play()};
+  db.forEach((d,k)=>d.onclick=()=>{to(k);play()});
+  box.addEventListener("mouseenter",()=>clearInterval(timer));
+  box.addEventListener("mouseleave",play);
+  let x0=null;
+  box.addEventListener("touchstart",e=>{x0=e.touches[0].clientX},{passive:true});
+  box.addEventListener("touchend",e=>{
+    if(x0===null) return;
+    const dx=e.changedTouches[0].clientX-x0; x0=null;
+    if(Math.abs(dx)>40){to(i+(dx<0?1:-1));play()}
+  });
+  to(0); play();
+})();
+
+/* Tabs */
+function setActive(v){
+  document.querySelectorAll(".tabs button").forEach(b=>b.setAttribute("aria-selected",b.dataset.view===v));
+}
+function go(v, smooth){
+  const el=$("#view-"+v); if(!el) return;
+  const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
+  el.scrollIntoView({behavior: smooth && !reduce ? "smooth" : "auto"});
+  setActive(v);
+}
+document.querySelector(".tabs").addEventListener("click",e=>{
+  const b=e.target.closest("button"); if(!b) return;
+  go(b.dataset.view, true);
+  try{history.replaceState(null,"","#"+b.dataset.view)}catch(_){}
+});
+/* Highlight the tab of the section in the middle of the screen while scrolling */
+const spy=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{ if(e.isIntersecting) setActive(e.target.dataset.panel); });
+},{rootMargin:"-45% 0px -50% 0px"});
+document.querySelectorAll("[data-panel]").forEach(s=>spy.observe(s));
+addEventListener("scroll",()=>{ if(scrollY<40) setActive("sobre"); },{passive:true});
+
+/* Proposal: prefilled WhatsApp chat or Gmail draft */
+const CONTACT = { email:"contatobiaaoliveeira@gmail.com", whatsapp:"5511964353179" }; // whatsapp: número com DDI, só dígitos (ex.: 5521999999999)
+function openProposal(fmt){
+  const msg = `Olá, Bia! Vi seu portfólio e quero fazer uma proposta (${fmt==="parceria" ? "parceria" : fmt}).\n\nMarca:\nProduto:\nPrazo:\nOrçamento:`;
+  $("#prop-title").textContent = fmt==="parceria" ? "Parceria" : fmt;
+  $("#prop-wa").href = `https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent(msg)}`;
+  $("#prop-gm").href = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(CONTACT.email)}&su=${encodeURIComponent("Proposta: "+fmt)}&body=${encodeURIComponent(msg)}`;
+  $("#proposal").showModal();
+}
+document.addEventListener("click",e=>{ const b=e.target.closest("button[data-fmt]"); if(b) openProposal(b.dataset.fmt); });
+$("#prop-close").onclick=()=>$("#proposal").close();
+$("#proposal").addEventListener("click",e=>{ if(e.target===$("#proposal")) $("#proposal").close(); });
+
+$("#copy").addEventListener("click",()=>{
+  const t=$("#email").textContent, btn=$("#copy");
+  const done=()=>{btn.textContent="Copiado!";setTimeout(()=>btn.textContent="Copiar e-mail",1600)};
+  if(navigator.clipboard) navigator.clipboard.writeText(t).then(done).catch(()=>{const r=document.createRange();r.selectNodeContents($("#email"));const s=getSelection();s.removeAllRanges();s.addRange(r);});
+});
+
+renderFilters(); renderGrid(); renderMetrics();
+const start=(location.hash||"").slice(1);
+if(["portfolio","metricas","contato"].includes(start)) go(start,false);
+</script>
+
+</body>
+</html>
